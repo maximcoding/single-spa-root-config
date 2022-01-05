@@ -35,7 +35,12 @@
       "imports": {
         "single-spa": "https://cdn.jsdelivr.net/npm/single-spa@5.9.0/lib/system/single-spa.min.js",
          "react": "https://cdn.jsdelivr.net/npm/react@17.0.2/umd/react.production.min.js",
-         "react-dom": "https://cdn.jsdelivr.net/npm/react-dom@17.0.2/umd/react-dom.production.min.js"
+         "react-dom": "https://cdn.jsdelivr.net/npm/react-dom@17.0.2/umd/react-dom.production.min.js",
+         "rxjs": "https://cdn.jsdelivr.net/npm/@esm-bundle/rxjs/system/es2015/rxjs.min.js",
+         "rxjs/operators": "https://cdn.jsdelivr.net/npm/@esm-bundle/rxjs/system/es2015/rxjs-operators.min.js",
+
+
+         "@locusview/shared-app": "//localhost:8080/locusview-shared-app.js"
       }
     }
 
@@ -56,16 +61,13 @@
     {
       "imports": {
         "@locusview/root-config": "//localhost:9000/locusview-root-config.js",
-        "@locusview/auth-app": "//localhost:4200/main.js",
         "@locusview/layout-app": "//localhost:4300/main.js",
         "@locusview/angular-app": "//localhost:4400/main.js",
-        "@locusview/react-app": "//localhost:8080/locusview-root-app.js",
-        "@locusview/shared-app": "//localhost:8081/locusview-shared-app.js"
+        "@locusview/react-app": "//localhost:8081/locusview-root-app.js",
+        "@locusview/auth-app": "//localhost:4200/main.js",
+        "@locusview/shared-app": "//localhost:8080/locusview-shared-app.js"
       }
     }
-
-
-
         </script>
     <% } else { %>
         <script type="systemjs-importmap">
@@ -73,9 +75,9 @@
         "imports": {
           "@locusview/root-config": "/locusview-root-config.js",
           "@locusview/layout-app": "/layout-app/locusview-layout.js",
-          "@locusview/auth-app": "/auth-app/locusview-auth-app.js",
           "@locusview/angular-app": "/angular-app/locusview-angular-app.js",
-           "@locusview/shared-app": "/shared-app/locusview-shared-app.js"
+          "@locusview/auth-app": "/auth-app/main.js",
+          "@locusview/shared-app": "/shared-app/locusview-shared-app.js"
         }
       }
 
@@ -123,7 +125,7 @@
 </head>
 <body>
 <script>
-  System.import('@locusview/shared-app');
+  System.import('@locusview/shared-app'); // FOR CSS !!!
   System.import('@locusview/root-config');
 </script>
 <import-map-overrides-full show-when-local-storage="devtools" dev-libs></import-map-overrides-full>
